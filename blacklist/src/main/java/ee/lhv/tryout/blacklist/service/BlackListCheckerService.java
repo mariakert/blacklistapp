@@ -64,6 +64,7 @@ public class BlackListCheckerService {
         return (insertedName.length() == blackListedName.length()) && (insertedName + insertedName).contains(blackListedName);
     }
 
+    // http://www.dropby.com/NYSIIS.html
     private String transform(String name) {
         name = transformBeginning(name);
         name = transformEnd(name);
