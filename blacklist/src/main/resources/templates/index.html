@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Blacklist checker</title>
+    <link rel="stylesheet" href="webjars/bootstrap/4.4.1/css/bootstrap.min-jsf.css"/>
+</head>
+<body>
+<div class="container">
+    <br>
+    <h2>Search from blacklist</h2>
+    <form action="#" th:action="@{/matches}" method="get">
+        <div class="form-group">
+            <div th:if="${error != null}" class="alert alert-danger"><p th:text="${error}"></p></div>
+            <p>Name: <input id="search" type="text" th:name="name" class="form-control"/></p>
+            <p>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </p>
+        </div>
+    </form>
+    <div th:if="${matches != null && !matches.isEmpty()}">
+        <h2>Results:</h2>
+        <ul class="list-group">
+            <li th:each="match : ${matches}"><p th:text="${match}"></p></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
